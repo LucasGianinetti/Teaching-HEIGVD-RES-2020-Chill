@@ -1,9 +1,16 @@
 language: java
 
+dist: 
+
 cache:
   directories:
     - $HOME/.m2
 
+addons:
+  sonarcloud:
+    organization: "lucasgianinetti"
+    token:
+      secure: "OPgHJU8zWB38pT/oeuWQobdKHOpP6l6GoSqixjrs7ILBvnD/dpxFGfpma6/UlYo5kCpTT9Hvi6iDVR17DGtzzu4j+bKsQB9uSEPnapjXyY4nVO8vmvOg9F2CcgO7RAPk7T7LNSVbl5HNloBfP+Xga2uwPSqECDnJVA06TaY+Ba/KqjM8+2HiT3eGo1c3QyATBSxXES2yMF88LVY9MPKl7KQ5+IezxQR/mokxZDBMoKWCH7isvcbGBOidW2RQwpZO7SrU7IQPXFYnFNVFwTWqfiD3FeqscVavXAPxLPvlNImNBKr9ouOv6HjTqx7kaL8uRQgawFCgN6OodW0jL3kVR1FHu1psXL81CdoXFsU4Kv76/uecRMFw5aJCMpSGkMeAFvPS8NTT+5husC+SyplfFYNk2iGFXhJPlUVhmFrAg+gYVjgqpGZPpwD4MgnfMbRj0zIOUIFDJ3cx8iooJITwTZto6ntbQwh9i/XFH1oYJuyu1pv9Wm8D8jK/6qdY0TQVp1L9N1UUzReSfhlhkWATwdYw3TE/3PR/PumU+0PUyAu0+Jrn6Pkti2U4duBXcel6NG4HOKExSZhQ1BedYUQpDO3o3rNVpEjRhqZvSric/yUYAq3uMYNsnj67m2U8kwqxqSJ281mLRtyqKgFV8FkLpG9Tbp18rRVR4Hz85biaMlI="
 script:
-  - echo "RESBot at work... let's see if code compiles and tests pass!"
-  - mvn clean package
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=LucasGianinetti_Teaching-HEIGVD-RES-2020-Chill
