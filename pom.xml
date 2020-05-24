@@ -15,7 +15,14 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-
+  
+<properties>
+  <sonar.projectKey>LucasGianinetti_Teaching-HEIGVD-RES-2020-Chill</sonar.projectKey>
+  <sonar.organization>lucasgianinetti</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>e6ea9854053f5ca6735c15e89148dd5246095568</sonar.login>
+</properties>
+  
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>
